@@ -106,6 +106,52 @@
     justify-content: center;
   }
   .silhouette svg { opacity: 0.45; }
+
+  /* Aims carousel stack transition */
+  .aims-stack {
+    perspective: 1200px;
+    position: relative;
+  }
+  .aims-carousel-slide {
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index   0s;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+  .aims-carousel-slide.aims-front {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .aims-carousel-slide.aims-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform: translateZ(-60px) scale(0.94);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  /* Outgoing: fly to back */
+  .aims-carousel-slide.aims-exit-to-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform: translateZ(-120px) scale(0.88) translateY(16px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Incoming: rise from back */
+  .aims-carousel-slide.aims-enter-from-back {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform: translateZ(-120px) scale(0.88) translateY(16px);
+    opacity: 0;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body class="font-body-md antialiased overflow-x-hidden bg-surface">
@@ -121,7 +167,7 @@
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="about.html">About</a>
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#criteria">Criteria</a>
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="events.html">Events</a>
-    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#gallery">Gallery</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="gallery.html">Gallery</a>
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#sponsors">Sponsors</a>
   </div>
   <a class="bg-primary-container text-on-primary-fixed font-label-caps px-6 py-3 rounded-lg hover:brightness-110 active:opacity-80 transition-all font-bold" href="nominate.html">
@@ -301,10 +347,14 @@
       <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto leading-relaxed">Supporting Northern Territory seniors through recognition, community service, and the celebration of voluntary excellence.</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
-
+    <div id="aims-carousel" class="max-w-4xl mx-auto" tabindex="0" aria-roledescription="carousel" aria-label="Our Aims and Mission">
+      <div class="flex items-center gap-3 md:gap-6">
+        <button type="button" id="aims-carousel-prev" class="shrink-0 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg border border-zinc-900/10 bg-white text-on-surface hover:border-primary-container hover:text-primary transition-colors disabled:opacity-40 disabled:pointer-events-none" aria-label="Previous slide">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+      <div class="aims-stack flex-1 min-w-0">
       <!-- Aims & Objectives -->
-      <div class="bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col relative overflow-hidden">
+      <div id="aims-slide-0" class="aims-carousel-slide aims-front bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col overflow-hidden" role="group" aria-roledescription="slide" aria-label="1 of 2: Our Aims and Objectives">
         <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">star</span>
         <div class="relative z-10 mb-8">
           <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">WHAT WE STAND FOR</span>
@@ -332,7 +382,7 @@
       </div>
 
       <!-- Mission Statement -->
-      <div class="bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col relative overflow-hidden">
+      <div id="aims-slide-1" class="aims-carousel-slide aims-back bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col overflow-hidden" role="group" aria-roledescription="slide" aria-label="2 of 2: Our Mission Statement">
         <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">diversity_3</span>
         <div class="relative z-10 mb-8">
           <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">GUIDING PRINCIPLES</span>
@@ -358,7 +408,11 @@
           </div>
         </div>
       </div>
-
+      </div>
+        <button type="button" id="aims-carousel-next" class="shrink-0 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg border border-zinc-900/10 bg-white text-on-surface hover:border-primary-container hover:text-primary transition-colors disabled:opacity-40 disabled:pointer-events-none" aria-label="Next slide">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -423,6 +477,68 @@
   </div>
 </div>
 </footer>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.aims-carousel-slide'));
+  var prevBtn = document.getElementById('aims-carousel-prev');
+  var nextBtn = document.getElementById('aims-carousel-next');
+  var current = 0;
+  var total = slides.length;
+  var animating = false;
+
+  function setClasses(el, add, remove) {
+    add.forEach(function (c) { el.classList.add(c); });
+    remove.forEach(function (c) { el.classList.remove(c); });
+  }
+
+  function updateControls() {
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === total - 1;
+  }
+
+  function goTo(next) {
+    if (animating || next === current || next < 0 || next >= total) return;
+    animating = true;
+
+    var outgoing = slides[current];
+    var incoming = slides[next];
+
+    /* Place incoming behind, ready to rise */
+    setClasses(incoming, ['aims-enter-from-back'], ['aims-back', 'aims-front', 'aims-exit-to-back']);
+
+    /* Trigger reflow so the start state is painted before the transition runs */
+    incoming.getBoundingClientRect();
+
+    /* Animate outgoing to back, incoming to front */
+    setClasses(outgoing, ['aims-exit-to-back'], ['aims-front', 'aims-back', 'aims-enter-from-back']);
+    setClasses(incoming, ['aims-front'], ['aims-enter-from-back', 'aims-back', 'aims-exit-to-back']);
+
+    current = next;
+    updateControls();
+
+    var DURATION = 560;
+    setTimeout(function () {
+      /* Park the old slide quietly behind */
+      setClasses(outgoing, ['aims-back'], ['aims-exit-to-back', 'aims-front', 'aims-enter-from-back']);
+      animating = false;
+    }, DURATION);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+  var carousel = document.getElementById('aims-carousel');
+  if (carousel) {
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+  }
+
+  updateControls();
+})();
+</script>
 
 </body>
 </html>
