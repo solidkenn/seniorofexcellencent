@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="assets/dark-mode-init.js"></script>
+<link href="assets/dark-mode.css" rel="stylesheet"/>
 <title>Nominate – Seniors of Excellence NT</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -142,10 +144,16 @@
       <img src="assets/logo.png" width="48" height="48" class="h-12 w-12 rounded-full object-cover border border-zinc-200 shrink-0" alt="Seniors of Excellence Northern Territory"/>
       <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
     </a>
+    <div class="flex items-center gap-3 shrink-0">
+    <button type="button" id="dark-mode-toggle" aria-label="Switch to dark mode" aria-pressed="false" class="flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 bg-white text-zinc-900 hover:border-primary-container transition-colors">
+    <span class="material-symbols-outlined text-2xl dark-mode-icon-moon" aria-hidden="true">dark_mode</span>
+    <span class="material-symbols-outlined text-2xl dark-mode-icon-sun hidden" aria-hidden="true">light_mode</span>
+    </button>
     <a href="index.html" class="flex items-center gap-2 text-sm font-semibold text-secondary hover:text-on-surface transition-colors">
       <span class="material-symbols-outlined text-base">arrow_back</span>
       Back to site
     </a>
+    </div>
   </nav>
 </header>
 
@@ -452,5 +460,6 @@
   </div>
 </footer>
 
+<script src="assets/dark-mode.js"></script>
 </body>
 </html>

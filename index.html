@@ -3,6 +3,8 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="assets/dark-mode-init.js"></script>
+<link href="assets/dark-mode.css" rel="stylesheet"/>
 <title>Seniors of Excellence NT</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Work+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -123,9 +125,15 @@
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="gallery.html">Gallery</a>
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="#sponsors">Sponsors</a>
 </div>
+<div class="flex items-center gap-3 shrink-0">
+<button type="button" id="dark-mode-toggle" aria-label="Switch to dark mode" aria-pressed="false" class="flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 bg-white text-zinc-900 hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-2xl dark-mode-icon-moon" aria-hidden="true">dark_mode</span>
+<span class="material-symbols-outlined text-2xl dark-mode-icon-sun hidden" aria-hidden="true">light_mode</span>
+</button>
 <a class="bg-primary-container text-on-primary-fixed font-label-caps px-6 py-3 rounded-lg hover:brightness-110 active:opacity-80 transition-all font-bold" href="nominate.html">
                 Nominate Now
             </a>
+</div>
 </nav>
 </header>
 <main class="mt-20">
@@ -370,4 +378,5 @@
 </div>
 </div>
 </footer>
+<script src="assets/dark-mode.js"></script>
 </body></html>
