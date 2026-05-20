@@ -5,6 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script src="assets/dark-mode-init.js"></script>
 <link href="assets/dark-mode.css" rel="stylesheet"/>
+<link href="assets/mobile-nav.css" rel="stylesheet"/>
 <title>Seniors of Excellence NT</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Work+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -126,6 +127,10 @@
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="#sponsors">Sponsors</a>
 </div>
 <div class="flex items-center gap-3 shrink-0">
+<button type="button" id="mobile-nav-toggle" class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+<span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
+<span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
+</button>
 <button type="button" id="dark-mode-toggle" aria-label="Switch to dark mode" aria-pressed="false" class="flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 bg-white text-zinc-900 hover:border-primary-container transition-colors">
 <span class="material-symbols-outlined text-2xl dark-mode-icon-moon" aria-hidden="true">dark_mode</span>
 <span class="material-symbols-outlined text-2xl dark-mode-icon-sun hidden" aria-hidden="true">light_mode</span>
@@ -135,6 +140,16 @@
             </a>
 </div>
 </nav>
+<div id="mobile-nav-panel" class="md:hidden" hidden>
+<ul class="mobile-nav-list font-noto-serif">
+<li><a href="about.html">About</a></li>
+<li><a href="#criteria">Criteria</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="#sponsors">Sponsors</a></li>
+<li class="mobile-nav-nominate md:hidden"><a href="nominate.html">Nominate Now</a></li>
+</ul>
+</div>
 </header>
 <main class="mt-20">
 <!-- Hero Section -->
@@ -379,4 +394,5 @@
 </div>
 </footer>
 <script src="assets/dark-mode.js"></script>
+<script src="assets/mobile-nav.js"></script>
 </body></html>
