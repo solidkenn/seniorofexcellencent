@@ -71,9 +71,14 @@
           "full": "0.75rem"
         },
         fontFamily: {
-          "noto-serif": ["Noto Serif", "serif"],
-          "serif": ["Noto Serif", "serif"],
-          "sans": ["Work Sans", "sans-serif"]
+          "h1": ["Noto Serif"],
+          "h2": ["Noto Serif"],
+          "h3": ["Noto Serif"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-caps": ["Work Sans"],
+          "serif": ["Noto Serif"],
+          "sans": ["Work Sans"]
         },
         fontSize: {
           "h1": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
@@ -140,13 +145,13 @@
 
 <!-- Top navigation bar -->
 <header class="fixed top-0 w-full z-50 bg-white border-b border-zinc-900/10">
-  <nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto font-noto-serif antialiased">
+  <nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto antialiased">
     <a href="index.html" class="flex items-center gap-3 shrink-0 min-w-0 no-underline text-inherit hover:opacity-90 transition-opacity">
-      <img src="assets/logo.png" width="48" height="48" class="h-12 w-12 rounded-full object-cover border border-zinc-200 shrink-0" alt="Seniors of Excellence Northern Territory"/>
+      <img src="assets/logo.png" width="56" height="56" class="header-logo" alt="Seniors of Excellence Northern Territory"/>
       <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
     </a>
     <div class="flex items-center gap-3 shrink-0">
-    <button type="button" id="mobile-nav-toggle" class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+    <button type="button" id="mobile-nav-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
     <span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
     <span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
     </button>
@@ -154,20 +159,20 @@
     <span class="material-symbols-outlined text-2xl dark-mode-icon-moon" aria-hidden="true">dark_mode</span>
     <span class="material-symbols-outlined text-2xl dark-mode-icon-sun hidden" aria-hidden="true">light_mode</span>
     </button>
-    <a href="index.html" class="hidden md:flex items-center gap-2 text-sm font-semibold text-secondary hover:text-on-surface transition-colors">
+    <a href="index.html" class="hidden lg:flex items-center gap-2 text-sm font-semibold text-secondary hover:text-on-surface transition-colors">
       <span class="material-symbols-outlined text-base">arrow_back</span>
       Back to site
     </a>
     </div>
   </nav>
-  <div id="mobile-nav-panel" class="md:hidden" hidden>
-  <ul class="mobile-nav-list font-noto-serif">
+  <div id="mobile-nav-panel" class="lg:hidden" hidden>
+  <ul class="mobile-nav-list">
   <li><a href="index.html">Home</a></li>
   <li><a href="about.html">About</a></li>
-  <li><a href="index.html#criteria">Criteria</a></li>
   <li><a href="events.html">Events</a></li>
   <li><a href="gallery.html">Gallery</a></li>
-  <li><a href="index.html#sponsors">Sponsors</a></li>
+  <li><a href="in-memoriam.html">In Memoriam</a></li>
+  <li><a href="contact.html">Contact</a></li>
   <li><a href="nominate.html" aria-current="page">Nominate</a></li>
   </ul>
   </div>
@@ -469,10 +474,13 @@
   <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
     <span class="font-serif font-bold text-white">Seniors of Excellence NT</span>
     <span>© 2026 Seniors of Excellence NT. Honoring Wisdom and Vitality.</span>
+    <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+    <a href="contact.html" class="text-zinc-400 hover:text-white transition-colors">Contact Us</a>
     <a href="index.html" class="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
       <span class="material-symbols-outlined text-sm">arrow_back</span>
       Return to main site
     </a>
+    </div>
   </div>
 </footer>
 

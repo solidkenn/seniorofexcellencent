@@ -36,13 +36,12 @@
           "full": "0.75rem"
         },
         fontFamily: {
-          "noto-serif": ["Noto Serif", "serif"],
-          "h1": ["Noto Serif", "serif"],
-          "h2": ["Noto Serif", "serif"],
-          "h3": ["Noto Serif", "serif"],
-          "body-md": ["Work Sans", "sans-serif"],
-          "body-lg": ["Work Sans", "sans-serif"],
-          "label-caps": ["Work Sans", "sans-serif"]
+          "h1": ["Noto Serif"],
+          "h2": ["Noto Serif"],
+          "h3": ["Noto Serif"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-caps": ["Work Sans"]
         },
         fontSize: {
           "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
@@ -102,25 +101,28 @@
   #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-cta {
     color: #ff8c00;
   }
+  .calendar-timeline-entry[id] {
+    scroll-margin-top: 6rem;
+  }
 </style>
 </head>
 <body class="font-body-md antialiased overflow-x-hidden">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-white border-b border-zinc-900/10">
-<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto font-noto-serif antialiased">
+<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto antialiased">
 <a href="index.html" class="flex items-center gap-3 shrink-0 min-w-0 no-underline text-inherit hover:opacity-90 transition-opacity">
-<img src="assets/logo.png" width="48" height="48" class="h-12 w-12 rounded-full object-cover border border-zinc-200 shrink-0" alt="Seniors of Excellence Northern Territory"/>
+<img src="assets/logo.png" width="56" height="56" class="header-logo" alt="Seniors of Excellence Northern Territory"/>
 <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
 </a>
-<div class="hidden md:flex items-center gap-8">
+<div class="hidden lg:flex items-center gap-8">
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="about.html">About</a>
-<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#criteria">Criteria</a>
 <a class="text-orange-600 font-medium" href="events.html" aria-current="page">Events</a>
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="gallery.html">Gallery</a>
-<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#sponsors">Sponsors</a>
+<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="in-memoriam.html">In Memoriam</a>
+<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="contact.html">Contact</a>
 </div>
 <div class="flex items-center gap-3 shrink-0">
-<button type="button" id="mobile-nav-toggle" class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+<button type="button" id="mobile-nav-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
 <span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
 <span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
 </button>
@@ -133,13 +135,13 @@
 </a>
 </div>
 </nav>
-<div id="mobile-nav-panel" class="md:hidden" hidden>
-<ul class="mobile-nav-list font-noto-serif">
+<div id="mobile-nav-panel" class="lg:hidden" hidden>
+<ul class="mobile-nav-list">
 <li><a href="about.html">About</a></li>
-<li><a href="index.html#criteria">Criteria</a></li>
 <li><a href="events.html" aria-current="page">Events</a></li>
 <li><a href="gallery.html">Gallery</a></li>
-<li><a href="index.html#sponsors">Sponsors</a></li>
+<li><a href="in-memoriam.html">In Memoriam</a></li>
+<li><a href="contact.html">Contact</a></li>
 <li class="mobile-nav-nominate"><a href="nominate.html">Nominate Now</a></li>
 </ul>
 </div>
@@ -161,48 +163,11 @@
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
 <div>
 <h2 class="font-h2 text-h2 mb-4">Featured Events</h2>
-<p class="font-body-md text-body-md text-secondary max-w-2xl">Browse the current events and campaigns connected to the Seniors of Excellence NT community.</p>
+<p class="font-body-md text-body-md text-secondary max-w-2xl">The next upcoming events for 2026. See the full calendar below for all dates including the annual awards gala.</p>
 </div>
 <a class="text-primary-container font-bold font-label-caps border-b-2 border-primary-container pb-1 hover:text-primary transition-colors" href="#calendar">View Calendar</a>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-<article id="spring-garden-tea-party" class="bg-white rounded-lg overflow-hidden shadow-sm border border-zinc-900/10 flex flex-col">
-<img class="h-56 w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBzvVlD8lQlGr1myOqVCbvJ_Tf4lpIUKpKbPKdXAW0tAZORYYJ3S7KOeU1yLf5e_1QHstrAvovdDg4WbkqjnldYHfj0RzQyh3Z1ar_qnzKYUdn_s9qaiErD1bdEH3h8sB3Mk4jV0AW4bu7SAGGtQQ4tsfFZci-YJOKGUv88r0FsfTxHACjEYlp25YqNxDv3sS7_urGun2zde9rQhrkes6Ijf8I4DjKljZtj2utOsXX9F4DWI3pazBRxMbDHy6gPusO4iEff-rFK2XX" alt="Elegant garden tea setting"/>
-<div class="p-8 flex flex-col flex-1">
-<span class="bg-black text-white text-[10px] uppercase font-bold tracking-widest px-2 py-1 rounded self-start">MAY 24, 2026</span>
-<h3 class="font-h3 text-h3 mt-5 mb-3">Spring Garden Tea Party</h3>
-<p class="text-secondary font-body-md text-base leading-relaxed flex-1">A social gathering in the historic Government House gardens to celebrate our nominees.</p>
-<a class="mt-6 inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline" href="#calendar">
-<span>See in Calendar</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</a>
-</div>
-</article>
-<article id="reach-out-campaign" class="bg-zinc-900 rounded-lg overflow-hidden shadow-sm border border-zinc-800 text-white flex flex-col">
-<img class="h-56 w-full object-cover object-top bg-white" src="assets/reach-out-campaign.png" alt="No More Gendered Violence Campaign illustration"/>
-<div class="p-8 flex flex-col flex-1">
-<span class="bg-primary-container text-black text-[10px] uppercase font-bold tracking-widest px-2 py-1 rounded self-start">JUNE 10, 2026</span>
-<h3 class="font-h3 text-h3 mt-5 mb-3">No More Gendered Violence Campaign &quot;Reach Out&quot;</h3>
-<p class="text-zinc-300 font-body-md text-base leading-relaxed flex-1">Charlie King OAM, AM, Past Australian of the Year recipient, and a 2022 recipient of a Seniors Of Excellence Award, has invited as many as possible Seniors Of Excellence Award recipients and their families and friends to support and be involved in this campaign.</p>
-<a class="mt-6 inline-flex items-center gap-2 text-primary-container font-bold text-sm hover:underline" href="#calendar">
-<span>See in Calendar</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</a>
-</div>
-</article>
-<article id="awards-ceremony" class="bg-white rounded-lg overflow-hidden shadow-sm border border-zinc-900/10 flex flex-col">
-<img class="h-56 w-full object-cover" src="assets/awards-2026.png" alt="Seniors of Excellence NT award trophies on display"/>
-<div class="p-8 flex flex-col flex-1">
-<span class="bg-black text-white text-[10px] uppercase font-bold tracking-widest px-2 py-1 rounded self-start">OCT 12, 2026</span>
-<h3 class="font-h3 text-h3 mt-5 mb-3">Seniors of Excellence NT Inc Awards 2026</h3>
-<p class="text-secondary font-body-md text-base leading-relaxed flex-1">Our flagship annual gala where the Seniors of Excellence NT recipients are formally announced.</p>
-<a class="mt-6 inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline" href="#calendar">
-<span>See in Calendar</span>
-<span class="material-symbols-outlined text-lg">arrow_forward</span>
-</a>
-</div>
-</article>
-</div>
+<div id="featured-events-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
 </div>
 </section>
 <!-- Calendar -->
@@ -241,151 +206,7 @@
 </div>
 <!-- Timeline -->
 <div class="lg:col-span-3">
-<div class="flex flex-col" id="calendar-timeline">
-<!-- May 8 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="may">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">8</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">May</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="2026 Nomination Information Session" data-date="MAY 8, 2026" data-image="assets/gallery/album-nominee-portraits.png" data-alt="Nominee portraits from the awards program" data-description="An open information session for community members, families, and organisations interested in nominating a senior for the 2026 Seniors of Excellence NT Awards. Learn about eligibility, criteria, and how to submit a nomination.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">MAY 8, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">2026 Nomination Information Session</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Learn about eligibility, criteria, and how to nominate for the 2026 awards.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- May 17 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="may">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">17</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">May</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="Past Recipients Morning Tea" data-date="MAY 17, 2026" data-image="assets/gallery/album-government-house-tea.png" data-alt="Past recipients gathered for morning tea" data-description="A welcoming morning tea for past Seniors of Excellence NT award recipients to reconnect, share stories, and hear about upcoming programs and the 2026 awards round. Families and friends are welcome.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">MAY 17, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">Past Recipients Morning Tea</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Reconnect with fellow award recipients and hear about the 2026 awards round.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- May 24 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="may">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">24</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">May</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="Spring Garden Tea Party" data-date="MAY 24, 2026" data-image="https://lh3.googleusercontent.com/aida-public/AB6AXuDBzvVlD8lQlGr1myOqVCbvJ_Tf4lpIUKpKbPKdXAW0tAZORYYJ3S7KOeU1yLf5e_1QHstrAvovdDg4WbkqjnldYHfj0RzQyh3Z1ar_qnzKYUdn_s9qaiErD1bdEH3h8sB3Mk4jV0AW4bu7SAGGtQQ4tsfFZci-YJOKGUv88r0FsfTxHACjEYlp25YqNxDv3sS7_urGun2zde9rQhrkes6Ijf8I4DjKljZtj2utOsXX9F4DWI3pazBRxMbDHy6gPusO4iEff-rFK2XX" data-alt="Elegant garden tea setting" data-description="A social gathering in the historic Government House gardens to celebrate our nominees.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">MAY 24, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">Spring Garden Tea Party</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">A social gathering in the historic Government House gardens to celebrate our nominees.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- June 10 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="june">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">10</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">Jun</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="No More Gendered Violence Campaign &quot;Reach Out&quot;" data-date="JUNE 10, 2026" data-image="assets/reach-out-campaign.png" data-image-top="true" data-alt="No More Gendered Violence Campaign illustration" data-description="Charlie King OAM, AM, Past Australian of the Year recipient, and a 2022 recipient of a Seniors Of Excellence Award, has invited as many as possible Seniors Of Excellence Award recipients and their families and friends to support and be involved in this campaign.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">JUNE 10, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">No More Gendered Violence Campaign &quot;Reach Out&quot;</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Charlie King OAM, AM, invites all Seniors of Excellence Award recipients and their families to support and be involved in this campaign.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- June 22 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="june">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">22</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">Jun</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="Community Volunteer Recognition Lunch" data-date="JUNE 22, 2026" data-image="assets/gallery/album-volunteer-celebration.png" data-alt="Volunteers celebrated at a community lunch" data-description="A luncheon honouring volunteers who support Seniors of Excellence NT programs, nominations, and community events across the Northern Territory. Join us to thank those who give their time to our senior community.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">JUNE 22, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">Community Volunteer Recognition Lunch</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Honouring volunteers who support our programs and events across the NT.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- June 28 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="june">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">28</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">Jun</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="NT Seniors Wellness Forum" data-date="JUNE 28, 2026" data-image="assets/what-we-do.png" data-alt="Seniors gathered at a community wellness forum" data-description="A forum for seniors, carers, and community partners to discuss wellbeing, active ageing, and local services. Hosted by Seniors of Excellence NT with guest speakers from health and community organisations.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">JUNE 28, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">NT Seniors Wellness Forum</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Discuss wellbeing, active ageing, and local services with guest speakers.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- July 15 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="july">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">15</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">Jul</span>
-</div>
-<div class="timeline-connector w-0.5 bg-primary-container/30 flex-1 min-h-[48px] mt-2"></div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 mb-6 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="Mid-Year Committee Open Forum" data-date="JULY 15, 2026" data-image="assets/gallery/album-community-picnic.png" data-alt="Community members at an open forum picnic" data-description="An open forum for members, sponsors, and the public to hear mid-year updates from the Seniors of Excellence NT committee, ask questions, and share ideas for the second half of 2026. Light refreshments provided.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">JULY 15, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">Mid-Year Committee Open Forum</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Hear committee updates, ask questions, and share ideas for the rest of 2026.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-<!-- October 12 -->
-<div class="calendar-timeline-entry flex gap-6" data-month="october">
-<div class="flex flex-col items-center">
-<div class="w-16 h-16 rounded-full bg-primary-container flex flex-col items-center justify-center shrink-0">
-<span class="text-black font-bold text-xl leading-none">12</span>
-<span class="text-black font-bold text-[10px] uppercase tracking-wider leading-tight">Oct</span>
-</div>
-</div>
-<button type="button" class="event-modal-trigger event-timeline-card flex-1 rounded-lg p-6 hover:-translate-y-0.5 hover:shadow-lg transition-all motion-safe:hover:-translate-y-1 text-left w-full" data-title="Seniors of Excellence NT Inc Awards 2026" data-date="OCTOBER 12, 2026" data-image="assets/awards-2026.png" data-alt="Seniors of Excellence NT award trophies on display" data-description="Our flagship annual gala where the Seniors of Excellence NT recipients are formally announced.">
-<span class="event-timeline-date font-label-caps tracking-widest text-xs">OCTOBER 12, 2026</span>
-<h3 class="font-h3 text-h3 mt-2 mb-2">Seniors of Excellence NT Inc Awards 2026</h3>
-<p class="event-timeline-desc font-body-md text-base leading-relaxed">Our flagship annual gala where the Seniors of Excellence NT recipients are formally announced.</p>
-<span class="mt-4 inline-flex items-center gap-1 event-timeline-cta font-bold text-sm">
-View details <span class="material-symbols-outlined text-base">arrow_forward</span>
-</span>
-</button>
-</div>
-</div>
+<div class="flex flex-col" id="calendar-timeline"></div>
 </div>
 </div>
 </div>
@@ -409,7 +230,7 @@ View details <span class="material-symbols-outlined text-base">arrow_forward</sp
 </div>
 </div>
 <!-- Footer -->
-<footer class="bg-zinc-900 py-20 border-t border-white/5 font-noto-serif text-sm">
+<footer class="bg-zinc-900 py-20 border-t border-white/5 text-sm">
 <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-zinc-400">
 <div class="lg:col-span-1">
 <div class="text-lg font-bold text-white mb-6">Seniors of Excellence NT</div>
@@ -425,7 +246,11 @@ View details <span class="material-symbols-outlined text-base">arrow_forward</sp
 <li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
 <li><a class="hover:text-white transition-colors" href="nominate.html">Nomination Guidelines</a></li>
+<li><a class="hover:text-white transition-colors" href="index.html#criteria">Nomination Criteria</a></li>
+<li><a class="hover:text-white transition-colors" href="index.html#sponsors">Our Sponsors</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Weekly Bulletin</a></li>
+<li><a class="hover:text-white transition-colors" href="in-memoriam.html">In Memoriam</a></li>
+<li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
 </ul>
 </div>
 <div>
@@ -433,15 +258,11 @@ View details <span class="material-symbols-outlined text-base">arrow_forward</sp
 <ul class="space-y-4">
 <li class="flex items-center gap-3">
 <span class="material-symbols-outlined text-orange-400 text-sm">mail</span>
-info@seniorsofexcellencent.org
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-orange-400 text-sm">call</span>
-(08) 89XX XXXX
+<a class="hover:text-white transition-colors" href="mailto:seniorsofexcellencent@gmail.com">seniorsofexcellencent@gmail.com</a>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-orange-400 text-sm">location_on</span>
-<span>Suite 4, Excellence Plaza,<br/>Darwin, NT 0800</span>
+<span>P.O. Box 40561,<br/>Casuarina, NT 0811</span>
 </li>
 </ul>
 </div>
@@ -455,115 +276,8 @@ info@seniorsofexcellencent.org
 </div>
 </div>
 </footer>
-<script>
-(function () {
-  var modal = document.getElementById('event-modal');
-  var overlay = document.getElementById('event-modal-overlay');
-  var closeBtn = document.getElementById('event-modal-close');
-  var img = document.getElementById('event-modal-image');
-  var dateEl = document.getElementById('event-modal-date');
-  var titleEl = document.getElementById('event-modal-title');
-  var descEl = document.getElementById('event-modal-description');
-  var lastTrigger = null;
-
-  function openModal(trigger) {
-    var d = trigger.dataset;
-    img.src = d.image || '';
-    img.alt = d.alt || d.title || 'Event image';
-    img.classList.remove('object-top', 'bg-white');
-    if (d.imageTop === 'true') {
-      img.classList.add('object-top', 'bg-white');
-    }
-    dateEl.textContent = d.date || '';
-    titleEl.textContent = d.title || '';
-    descEl.textContent = d.description || '';
-    lastTrigger = trigger;
-    modal.classList.remove('hidden');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
-  }
-
-  function closeModal() {
-    modal.classList.add('hidden');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (lastTrigger) {
-      lastTrigger.focus();
-      lastTrigger = null;
-    }
-  }
-
-  document.querySelectorAll('.event-modal-trigger').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      openModal(btn);
-    });
-  });
-
-  var monthFilterBtns = document.querySelectorAll('.month-filter-btn');
-  var timelineEntries = document.querySelectorAll('.calendar-timeline-entry');
-  var inactiveMonthClasses = ['border-zinc-200', 'bg-surface-container-low'];
-  var activeMonthClasses = ['border-primary-container', 'bg-primary-container', 'text-black'];
-
-  function setMonthButtonActive(btn, isActive) {
-    inactiveMonthClasses.forEach(function (c) { btn.classList.toggle(c, !isActive); });
-    activeMonthClasses.forEach(function (c) { btn.classList.toggle(c, isActive); });
-    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-    var icon = btn.querySelector('.material-symbols-outlined');
-    if (icon) {
-      icon.classList.toggle('text-primary-container', !isActive);
-    }
-  }
-
-  function updateTimelineConnectors() {
-    var visible = Array.prototype.filter.call(timelineEntries, function (entry) {
-      return !entry.classList.contains('hidden');
-    });
-    timelineEntries.forEach(function (entry) {
-      var connector = entry.querySelector('.timeline-connector');
-      if (connector) {
-        connector.classList.add('hidden');
-      }
-    });
-    visible.forEach(function (entry, index) {
-      var connector = entry.querySelector('.timeline-connector');
-      if (connector && index < visible.length - 1) {
-        connector.classList.remove('hidden');
-      }
-    });
-  }
-
-  function filterTimelineByMonth(month) {
-    timelineEntries.forEach(function (entry) {
-      var show = month === 'all' || entry.getAttribute('data-month') === month;
-      entry.classList.toggle('hidden', !show);
-    });
-    updateTimelineConnectors();
-  }
-
-  monthFilterBtns.forEach(function (btn) {
-    setMonthButtonActive(btn, btn.getAttribute('data-month') === 'all');
-    btn.addEventListener('click', function () {
-      var month = btn.getAttribute('data-month');
-      monthFilterBtns.forEach(function (b) {
-        setMonthButtonActive(b, b === btn);
-      });
-      filterTimelineByMonth(month);
-    });
-  });
-
-  updateTimelineConnectors();
-
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', closeModal);
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal();
-    }
-  });
-})();
-</script>
+<script src="assets/events-data.js"></script>
+<script src="assets/events-render.js"></script>
 <script src="assets/dark-mode.js"></script>
 <script src="assets/mobile-nav.js"></script>
 </body>

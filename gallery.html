@@ -36,13 +36,12 @@
           "full": "0.75rem"
         },
         fontFamily: {
-          "noto-serif": ["Noto Serif", "serif"],
-          "h1": ["Noto Serif", "serif"],
-          "h2": ["Noto Serif", "serif"],
-          "h3": ["Noto Serif", "serif"],
-          "body-md": ["Work Sans", "sans-serif"],
-          "body-lg": ["Work Sans", "sans-serif"],
-          "label-caps": ["Work Sans", "sans-serif"]
+          "h1": ["Noto Serif"],
+          "h2": ["Noto Serif"],
+          "h3": ["Noto Serif"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-caps": ["Work Sans"]
         },
         fontSize: {
           "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
@@ -68,20 +67,20 @@
 </head>
 <body class="font-body-md antialiased overflow-x-hidden">
 <header class="fixed top-0 w-full z-50 bg-white border-b border-zinc-900/10">
-<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto font-noto-serif antialiased">
+<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto antialiased">
 <a href="index.html" class="flex items-center gap-3 shrink-0 min-w-0 no-underline text-inherit hover:opacity-90 transition-opacity">
-<img src="assets/logo.png" width="48" height="48" class="h-12 w-12 rounded-full object-cover border border-zinc-200 shrink-0" alt="Seniors of Excellence Northern Territory"/>
+<img src="assets/logo.png" width="56" height="56" class="header-logo" alt="Seniors of Excellence Northern Territory"/>
 <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
 </a>
-<div class="hidden md:flex items-center gap-8">
+<div class="hidden lg:flex items-center gap-8">
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="about.html">About</a>
-<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#criteria">Criteria</a>
 <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="events.html">Events</a>
 <a class="text-orange-600 font-medium" href="gallery.html" aria-current="page">Gallery</a>
-<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#sponsors">Sponsors</a>
+<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="in-memoriam.html">In Memoriam</a>
+<a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="contact.html">Contact</a>
 </div>
 <div class="flex items-center gap-3 shrink-0">
-<button type="button" id="mobile-nav-toggle" class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+<button type="button" id="mobile-nav-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
 <span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
 <span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
 </button>
@@ -94,13 +93,13 @@
 </a>
 </div>
 </nav>
-<div id="mobile-nav-panel" class="md:hidden" hidden>
-<ul class="mobile-nav-list font-noto-serif">
+<div id="mobile-nav-panel" class="lg:hidden" hidden>
+<ul class="mobile-nav-list">
 <li><a href="about.html">About</a></li>
-<li><a href="index.html#criteria">Criteria</a></li>
 <li><a href="events.html">Events</a></li>
 <li><a href="gallery.html" aria-current="page">Gallery</a></li>
-<li><a href="index.html#sponsors">Sponsors</a></li>
+<li><a href="in-memoriam.html">In Memoriam</a></li>
+<li><a href="contact.html">Contact</a></li>
 <li class="mobile-nav-nominate"><a href="nominate.html">Nominate Now</a></li>
 </ul>
 </div>
@@ -338,7 +337,7 @@
 </div>
 </div>
 </div>
-<footer class="bg-zinc-900 py-20 border-t border-white/5 font-noto-serif text-sm">
+<footer class="bg-zinc-900 py-20 border-t border-white/5 text-sm">
 <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-zinc-400">
 <div class="lg:col-span-1">
 <div class="text-lg font-bold text-white mb-6">Seniors of Excellence NT</div>
@@ -354,7 +353,11 @@
 <li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
 <li><a class="hover:text-white transition-colors" href="nominate.html">Nomination Guidelines</a></li>
+<li><a class="hover:text-white transition-colors" href="index.html#criteria">Nomination Criteria</a></li>
+<li><a class="hover:text-white transition-colors" href="index.html#sponsors">Our Sponsors</a></li>
 <li><a class="hover:text-white transition-colors" href="#">Weekly Bulletin</a></li>
+<li><a class="hover:text-white transition-colors" href="in-memoriam.html">In Memoriam</a></li>
+<li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
 </ul>
 </div>
 <div>
@@ -362,15 +365,11 @@
 <ul class="space-y-4">
 <li class="flex items-center gap-3">
 <span class="material-symbols-outlined text-orange-400 text-sm">mail</span>
-info@seniorsofexcellencent.org
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-orange-400 text-sm">call</span>
-(08) 89XX XXXX
+<a class="hover:text-white transition-colors" href="mailto:seniorsofexcellencent@gmail.com">seniorsofexcellencent@gmail.com</a>
 </li>
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-orange-400 text-sm">location_on</span>
-<span>Suite 4, Excellence Plaza,<br/>Darwin, NT 0800</span>
+<span>P.O. Box 40561,<br/>Casuarina, NT 0811</span>
 </li>
 </ul>
 </div>

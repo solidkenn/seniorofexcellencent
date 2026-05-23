@@ -72,13 +72,12 @@
           "full": "9999px"
         },
         fontFamily: {
-          "noto-serif": ["Noto Serif", "serif"],
-          "h1": ["Noto Serif", "serif"],
-          "h2": ["Noto Serif", "serif"],
-          "h3": ["Noto Serif", "serif"],
-          "body-md": ["Work Sans", "sans-serif"],
-          "body-lg": ["Work Sans", "sans-serif"],
-          "label-caps": ["Work Sans", "sans-serif"]
+          "h1": ["Noto Serif"],
+          "h2": ["Noto Serif"],
+          "h3": ["Noto Serif"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-caps": ["Work Sans"]
         },
         fontSize: {
           "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
@@ -161,20 +160,20 @@
 
 <!-- Nav -->
 <header class="fixed top-0 w-full z-50 bg-white border-b border-zinc-900/10">
-<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto font-noto-serif antialiased">
+<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto antialiased">
   <a href="index.html" class="flex items-center gap-3 shrink-0 min-w-0 no-underline text-inherit hover:opacity-90 transition-opacity">
-    <img src="assets/logo.png" width="48" height="48" class="h-12 w-12 rounded-full object-cover border border-zinc-200 shrink-0" alt="Seniors of Excellence Northern Territory"/>
+    <img src="assets/logo.png" width="56" height="56" class="header-logo" alt="Seniors of Excellence Northern Territory"/>
     <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
   </a>
-  <div class="hidden md:flex items-center gap-8">
+  <div class="hidden lg:flex items-center gap-8">
     <a class="text-orange-600 font-medium" href="about.html" aria-current="page">About</a>
-    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#criteria">Criteria</a>
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="events.html">Events</a>
     <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="gallery.html">Gallery</a>
-    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="index.html#sponsors">Sponsors</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="in-memoriam.html">In Memoriam</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="contact.html">Contact</a>
   </div>
   <div class="flex items-center gap-3 shrink-0">
-  <button type="button" id="mobile-nav-toggle" class="md:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+  <button type="button" id="mobile-nav-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
   <span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
   <span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
   </button>
@@ -187,13 +186,13 @@
   </a>
   </div>
 </nav>
-<div id="mobile-nav-panel" class="md:hidden" hidden>
-<ul class="mobile-nav-list font-noto-serif">
+<div id="mobile-nav-panel" class="lg:hidden" hidden>
+<ul class="mobile-nav-list">
 <li><a href="about.html" aria-current="page">About</a></li>
-<li><a href="index.html#criteria">Criteria</a></li>
 <li><a href="events.html">Events</a></li>
 <li><a href="gallery.html">Gallery</a></li>
-<li><a href="index.html#sponsors">Sponsors</a></li>
+<li><a href="in-memoriam.html">In Memoriam</a></li>
+<li><a href="contact.html">Contact</a></li>
 <li class="mobile-nav-nominate"><a href="nominate.html">Nominate Now</a></li>
 </ul>
 </div>
@@ -228,7 +227,7 @@
       <!-- Text -->
       <div>
         <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">FOUNDER &amp; PRESIDENT</span>
-        <h2 class="font-h2 text-h2 font-noto-serif mb-1">Michael (Mike) Foley OAM</h2>
+        <h2 class="font-h2 text-h2 mb-1">Michael (Mike) Foley OAM</h2>
         <p class="text-secondary text-sm font-semibold mb-6 uppercase tracking-wider">Founder / President</p>
         <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
           Mike Foley dedicated a significant portion of his life to community service, beginning with his active involvement in various community groups during his spare time. This immersion in community work exposed him to a multitude of individuals who shared his passion, many of whom were retirees.
@@ -245,7 +244,7 @@
 <section class="py-20 bg-surface-container-low" id="board">
   <div class="max-w-7xl mx-auto px-8">
     <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">GOVERNANCE</span>
-    <h2 class="font-h2 text-h2 font-noto-serif mb-12">Our Board</h2>
+    <h2 class="font-h2 text-h2 mb-12">Our Board</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
       <!-- Card: Mike Foley -->
@@ -258,7 +257,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">President</p>
-          <h3 class="font-h3 text-h3 font-noto-serif">Michael (Mike) Foley OAM</h3>
+          <h3 class="font-h3 text-h3">Michael (Mike) Foley OAM</h3>
         </div>
       </div>
 
@@ -272,7 +271,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Vice President</p>
-          <h3 class="font-h3 text-h3 font-noto-serif">The Hon Willem Westra van Holthe</h3>
+          <h3 class="font-h3 text-h3">The Hon Willem Westra van Holthe</h3>
         </div>
       </div>
 
@@ -286,7 +285,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Treasurer</p>
-          <h3 class="font-h3 text-h3 font-noto-serif">Jacqueline Dowling</h3>
+          <h3 class="font-h3 text-h3">Jacqueline Dowling</h3>
         </div>
       </div>
 
@@ -300,7 +299,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Secretary &amp; Public Officer</p>
-          <h3 class="font-h3 text-h3 font-noto-serif">Kay Foley</h3>
+          <h3 class="font-h3 text-h3">Kay Foley</h3>
         </div>
       </div>
 
@@ -314,7 +313,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Committee Member</p>
-          <h3 class="font-h3 text-h3 font-noto-serif text-zinc-400">To Be Announced</h3>
+          <h3 class="font-h3 text-h3 text-zinc-400">To Be Announced</h3>
         </div>
       </div>
 
@@ -328,7 +327,7 @@
         </div>
         <div>
           <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Committee Member</p>
-          <h3 class="font-h3 text-h3 font-noto-serif text-zinc-400">To Be Announced</h3>
+          <h3 class="font-h3 text-h3 text-zinc-400">To Be Announced</h3>
         </div>
       </div>
 
@@ -342,7 +341,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
       <div>
         <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">OUR PATRON</span>
-        <h2 class="font-h2 text-h2 font-noto-serif mb-4">The Hon Sally Thomas</h2>
+        <h2 class="font-h2 text-h2 mb-4">The Hon Sally Thomas</h2>
         <p class="text-zinc-300 font-body-lg text-body-lg leading-relaxed">
           We are honoured to have The Honourable Sally Thomas as our Patron, lending her distinguished support to the recognition of senior volunteers across the Northern Territory.
         </p>
@@ -366,7 +365,7 @@
   <div class="max-w-7xl mx-auto px-8">
     <div class="text-center mb-14">
       <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">WHAT WE STAND FOR</span>
-      <h2 class="font-h2 text-h2 font-noto-serif mb-4">Our Aims &amp; Mission</h2>
+      <h2 class="font-h2 text-h2 mb-4">Our Aims &amp; Mission</h2>
       <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto leading-relaxed">Supporting Northern Territory seniors through recognition, community service, and the celebration of voluntary excellence.</p>
     </div>
 
@@ -381,7 +380,7 @@
         <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">star</span>
         <div class="relative z-10 mb-8">
           <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">WHAT WE STAND FOR</span>
-          <h3 class="font-h2 text-h2 font-noto-serif mb-4">Our Aims &amp; Objectives</h3>
+          <h3 class="font-h2 text-h2 mb-4">Our Aims &amp; Objectives</h3>
           <p class="text-zinc-300 text-base leading-relaxed">We support Northern Territory seniors through positive community engagement, lifelong contribution, and recognition of voluntary excellence.</p>
         </div>
         <div class="relative z-10 space-y-6">
@@ -409,7 +408,7 @@
         <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">diversity_3</span>
         <div class="relative z-10 mb-8">
           <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">GUIDING PRINCIPLES</span>
-          <h3 class="font-h2 text-h2 font-noto-serif mb-4">Our Mission Statement</h3>
+          <h3 class="font-h2 text-h2 mb-4">Our Mission Statement</h3>
           <p class="text-zinc-300 text-base leading-relaxed">We exist to honour senior volunteers across the Northern Territory and inspire others through the power of community service, dignity, and lifelong contribution.</p>
         </div>
         <div class="relative z-10 space-y-6">
@@ -443,7 +442,7 @@
 <!-- CTA -->
 <section class="py-20 bg-primary-container">
   <div class="max-w-7xl mx-auto px-8 text-center">
-    <h2 class="font-h2 text-h2 font-noto-serif text-black mb-4">Know a Senior Who Deserves Recognition?</h2>
+    <h2 class="font-h2 text-h2 text-black mb-4">Know a Senior Who Deserves Recognition?</h2>
     <p class="text-on-primary-container font-body-lg text-body-lg mb-8 max-w-xl mx-auto">Nominations for the 2026 Awards are open. Help us celebrate the unsung heroes of the Northern Territory.</p>
     <a href="nominate.html" class="inline-block bg-black text-white font-bold font-label-caps px-10 py-4 rounded-lg hover:bg-zinc-800 transition-all">
       Nominate a Senior
@@ -454,7 +453,7 @@
 </main>
 
 <!-- Footer -->
-<footer class="bg-zinc-900 py-20 border-t border-white/5 font-noto-serif text-sm">
+<footer class="bg-zinc-900 py-20 border-t border-white/5 text-sm">
 <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-zinc-400">
   <div class="lg:col-span-1">
     <div class="text-lg font-bold text-white mb-6">Seniors of Excellence NT</div>
@@ -470,7 +469,11 @@
       <li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
       <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
       <li><a class="hover:text-white transition-colors" href="nominate.html">Nomination Guidelines</a></li>
+      <li><a class="hover:text-white transition-colors" href="index.html#criteria">Nomination Criteria</a></li>
+      <li><a class="hover:text-white transition-colors" href="index.html#sponsors">Our Sponsors</a></li>
       <li><a class="hover:text-white transition-colors" href="#">Weekly Bulletin</a></li>
+      <li><a class="hover:text-white transition-colors" href="in-memoriam.html">In Memoriam</a></li>
+      <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
     </ul>
   </div>
   <div>
@@ -478,15 +481,11 @@
     <ul class="space-y-4">
       <li class="flex items-center gap-3">
         <span class="material-symbols-outlined text-orange-400 text-sm">mail</span>
-        info@seniorsofexcellencent.org
-      </li>
-      <li class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-orange-400 text-sm">call</span>
-        (08) 89XX XXXX
+        <a class="hover:text-white transition-colors" href="mailto:seniorsofexcellencent@gmail.com">seniorsofexcellencent@gmail.com</a>
       </li>
       <li class="flex items-start gap-3">
         <span class="material-symbols-outlined text-orange-400 text-sm">location_on</span>
-        <span>Suite 4, Excellence Plaza,<br/>Darwin, NT 0800</span>
+        <span>P.O. Box 40561,<br/>Casuarina, NT 0811</span>
       </li>
     </ul>
   </div>
