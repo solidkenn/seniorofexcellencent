@@ -107,3 +107,22 @@ html.dark #mobile-nav-toggle {
   border-color: #52525b;
   color: #fafafa;
 }
+
+/* Site header — circular logo (all pages) */
+img.header-logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.3rem;
+  border: 2px solid rgba(255, 140, 0, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+html.dark img.header-logo {
+  background-color: #27272a;
+  border-color: rgba(255, 140, 0, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
