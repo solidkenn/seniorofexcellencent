@@ -281,11 +281,12 @@
 
     <!-- ── FORM AREA ── -->
     <div class="flex-1 min-w-0">
-      <p class="text-sm text-secondary mb-8">
-        Fields marked <span class="text-error font-bold">*</span> are required. Submissions are not active yet.
+      <p class="text-sm text-secondary mb-4">
+        Fields marked <span class="text-error font-bold">*</span> are required.
       </p>
+      <p id="nomination-form-status" class="hidden text-sm font-semibold mb-6 rounded-lg px-4 py-3" role="status" aria-live="polite"></p>
 
-      <form class="space-y-6" onsubmit="return false;">
+      <form id="nomination-form" class="space-y-6" novalidate>
 
         <!-- ── SECTION 1: Nominee Details ── -->
         <div id="section-nominee" class="scroll-mt-28 bg-white border border-zinc-200 rounded-xl overflow-hidden">
@@ -301,37 +302,37 @@
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Date of this Nomination <span class="text-error">*</span></span>
-                <input class="field-input" type="date"/>
+                <input class="field-input" type="date" name="nominationDate" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Full Name of Person Nominated <span class="text-error">*</span></span>
-                <input class="field-input" type="text" placeholder="e.g. Margaret A. Thompson"/>
+                <input class="field-input" type="text" name="nomineeName" placeholder="e.g. Margaret A. Thompson" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Nominee's Date of Birth <span class="text-error">*</span></span>
-                <input class="field-input" type="date"/>
+                <input class="field-input" type="date" name="nomineeDob" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Nominee's Mobile Phone</span>
-                <input class="field-input" type="tel" placeholder="04XX XXX XXX"/>
+                <input class="field-input" type="tel" name="nomineePhone" placeholder="04XX XXX XXX"/>
               </label>
 
               <label class="block md:col-span-2">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Postal Address</span>
-                <input class="field-input" type="text" placeholder="Street address, suburb"/>
+                <input class="field-input" type="text" name="nomineeAddress" placeholder="Street address, suburb"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Postal Code</span>
-                <input class="field-input" type="text" placeholder="0800"/>
+                <input class="field-input" type="text" name="nomineePostcode" placeholder="0800"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Email Address of Nominee</span>
-                <input class="field-input" type="email" placeholder="nominee@example.com"/>
+                <input class="field-input" type="email" name="nomineeEmail" placeholder="nominee@example.com"/>
               </label>
 
             </div>
@@ -355,7 +356,7 @@
               <span class="block text-sm text-secondary mb-4 leading-relaxed">
                 Describe the voluntary work the nominee has contributed through the years of their life to the Northern Territory community in which they reside or have resided. Include approximate years and dates of activities.
               </span>
-              <textarea class="field-input" rows="10" placeholder="Begin writing the biography here…&#10;&#10;Example: Since 1985, Margaret has volunteered at the Darwin Community Food Bank every Saturday morning, co-ordinating more than 200 volunteers over the years…"></textarea>
+              <textarea class="field-input" name="biography" rows="10" placeholder="Begin writing the biography here…&#10;&#10;Example: Since 1985, Margaret has volunteered at the Darwin Community Food Bank every Saturday morning, co-ordinating more than 200 volunteers over the years…" required></textarea>
             </label>
             <p class="text-xs text-secondary mt-3">The more information you provide, the easier it is for us to determine the validity of your nomination.</p>
           </div>
@@ -375,27 +376,27 @@
 
               <label class="block md:col-span-2">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Your Full Name <span class="text-error">*</span></span>
-                <input class="field-input" type="text" placeholder="e.g. John B. Smith"/>
+                <input class="field-input" type="text" name="nominatorName" placeholder="e.g. John B. Smith" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Email Address <span class="text-error">*</span></span>
-                <input class="field-input" type="email" placeholder="you@example.com"/>
+                <input class="field-input" type="email" name="nominatorEmail" placeholder="you@example.com" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Mobile Phone Number</span>
-                <input class="field-input" type="tel" placeholder="04XX XXX XXX"/>
+                <input class="field-input" type="tel" name="nominatorMobile" placeholder="04XX XXX XXX"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Telephone Number</span>
-                <input class="field-input" type="tel" placeholder="(08) XXXX XXXX"/>
+                <input class="field-input" type="tel" name="nominatorPhone" placeholder="(08) XXXX XXXX"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Postal Address</span>
-                <input class="field-input" type="text" placeholder="Street address, suburb"/>
+                <input class="field-input" type="text" name="nominatorAddress" placeholder="Street address, suburb"/>
               </label>
 
             </div>
@@ -416,32 +417,32 @@
 
               <label class="block md:col-span-2">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Full Name of Seconder <span class="text-error">*</span></span>
-                <input class="field-input" type="text" placeholder="e.g. Helen R. Davies"/>
+                <input class="field-input" type="text" name="seconderName" placeholder="e.g. Helen R. Davies" required/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Email Address</span>
-                <input class="field-input" type="email" placeholder="seconder@example.com"/>
+                <input class="field-input" type="email" name="seconderEmail" placeholder="seconder@example.com"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Mobile Number</span>
-                <input class="field-input" type="tel" placeholder="04XX XXX XXX"/>
+                <input class="field-input" type="tel" name="seconderMobile" placeholder="04XX XXX XXX"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Telephone Number</span>
-                <input class="field-input" type="tel" placeholder="(08) XXXX XXXX"/>
+                <input class="field-input" type="tel" name="seconderPhone" placeholder="(08) XXXX XXXX"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Postal Address</span>
-                <input class="field-input" type="text" placeholder="Street address, suburb"/>
+                <input class="field-input" type="text" name="seconderAddress" placeholder="Street address, suburb"/>
               </label>
 
               <label class="block">
                 <span class="block text-xs font-bold uppercase tracking-widest text-secondary mb-1">Post Code</span>
-                <input class="field-input" type="text" placeholder="0800"/>
+                <input class="field-input" type="text" name="seconderPostcode" placeholder="0800"/>
               </label>
 
             </div>
@@ -452,11 +453,12 @@
         <div class="bg-white border border-zinc-200 rounded-xl px-8 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <p class="text-sm font-semibold text-on-surface">Ready to submit?</p>
-            <p class="text-xs text-secondary mt-1">Document upload and live submission will be enabled in a future update. All fields marked <span class="text-error font-bold">*</span> will be required.</p>
+            <p class="text-xs text-secondary mt-1">Review your details, then submit your nomination below.</p>
           </div>
           <button
-            type="button"
-            class="shrink-0 bg-primary-container text-on-primary-fixed font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-lg hover:brightness-110 active:opacity-80 transition-all"
+            type="submit"
+            id="nomination-form-submit"
+            class="shrink-0 bg-primary-container text-on-primary-fixed font-bold text-sm uppercase tracking-widest px-10 py-4 rounded-lg hover:brightness-110 active:opacity-80 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
           >
             Submit Nomination
           </button>
@@ -484,7 +486,84 @@
   </div>
 </footer>
 
+<script src="assets/sheet-form.js"></script>
 <script src="assets/dark-mode.js"></script>
 <script src="assets/mobile-nav.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('nomination-form');
+  var statusEl = document.getElementById('nomination-form-status');
+  var submitBtn = document.getElementById('nomination-form-submit');
+  if (!form || !statusEl || !submitBtn) return;
+
+  function fieldValue(name) {
+    var el = form.elements[name];
+    return el && el.value ? el.value.trim() : '';
+  }
+
+  function showStatus(message, isError) {
+    statusEl.textContent = message;
+    statusEl.classList.remove('hidden', 'bg-green-100', 'text-green-900', 'border', 'border-green-200', 'bg-red-100', 'text-red-900', 'border-red-200');
+    if (isError) {
+      statusEl.classList.add('bg-red-100', 'text-red-900', 'border', 'border-red-200');
+    } else {
+      statusEl.classList.add('bg-green-100', 'text-green-900', 'border', 'border-green-200');
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    statusEl.classList.add('hidden');
+
+    var row = [
+      sheetFormTimestamp(),
+      fieldValue('nominationDate'),
+      fieldValue('nomineeName'),
+      fieldValue('nomineeDob'),
+      fieldValue('nomineePhone'),
+      fieldValue('nomineeAddress'),
+      fieldValue('nomineePostcode'),
+      fieldValue('nomineeEmail'),
+      fieldValue('biography'),
+      fieldValue('nominatorName'),
+      fieldValue('nominatorEmail'),
+      fieldValue('nominatorMobile'),
+      fieldValue('nominatorPhone'),
+      fieldValue('nominatorAddress'),
+      fieldValue('seconderName'),
+      fieldValue('seconderEmail'),
+      fieldValue('seconderMobile'),
+      fieldValue('seconderPhone'),
+      fieldValue('seconderAddress'),
+      fieldValue('seconderPostcode')
+    ];
+
+    submitToGoogleSheet('Nominations', row)
+      .then(function () {
+        form.reset();
+        showStatus('Thank you — your nomination has been submitted successfully.', false);
+        submitBtn.textContent = 'Submitted';
+        window.scrollTo({ top: form.offsetTop - 120, behavior: 'smooth' });
+        window.setTimeout(function () {
+          submitBtn.textContent = originalLabel;
+          submitBtn.disabled = false;
+        }, 5000);
+      })
+      .catch(function () {
+        showStatus('Something went wrong. Please contact seniorsofexcellencent@gmail.com for assistance.', true);
+        submitBtn.textContent = originalLabel;
+        submitBtn.disabled = false;
+      });
+  });
+})();
+</script>
 </body>
 </html>

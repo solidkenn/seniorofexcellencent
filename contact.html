@@ -166,31 +166,32 @@ View our sponsors
 </div>
 <div class="bg-white rounded-lg border border-zinc-900/10 p-8 shadow-sm">
 <h2 class="font-h2 text-h2 mb-2">Send a Message</h2>
-<p class="text-secondary text-sm mb-8">Form submissions are not active yet. Please use the email address above to contact us directly.</p>
-<form class="space-y-6" action="#" method="post" aria-disabled="true">
+<p class="text-secondary text-sm mb-4">Fill out the form below and we will get back to you as soon as we can.</p>
+<p id="contact-form-status" class="hidden text-sm font-semibold mb-6 rounded-lg px-4 py-3" role="status" aria-live="polite"></p>
+<form id="contact-form" class="space-y-6" action="#" method="post" novalidate>
 <label class="block">
 <span class="font-label-caps text-xs uppercase tracking-widest text-secondary mb-2 block">Your Name <span class="text-primary">*</span></span>
-<input class="contact-field" type="text" name="name" placeholder="Full name" disabled/>
+<input class="contact-field" type="text" name="name" placeholder="Full name" required autocomplete="name"/>
 </label>
 <label class="block">
 <span class="font-label-caps text-xs uppercase tracking-widest text-secondary mb-2 block">Email Address <span class="text-primary">*</span></span>
-<input class="contact-field" type="email" name="email" placeholder="you@example.com" disabled/>
+<input class="contact-field" type="email" name="email" placeholder="you@example.com" required autocomplete="email"/>
 </label>
 <label class="block">
 <span class="font-label-caps text-xs uppercase tracking-widest text-secondary mb-2 block">Subject</span>
-<select class="contact-field" name="subject" disabled>
+<select class="contact-field" name="subject">
 <option value="">Select a topic</option>
-<option value="awards">Awards program</option>
-<option value="mailing">Mailing list / newsletter</option>
-<option value="general">General enquiry</option>
-<option value="other">Other</option>
+<option value="Awards program">Awards program</option>
+<option value="Mailing list / newsletter">Mailing list / newsletter</option>
+<option value="General enquiry">General enquiry</option>
+<option value="Other">Other</option>
 </select>
 </label>
 <label class="block">
 <span class="font-label-caps text-xs uppercase tracking-widest text-secondary mb-2 block">Message <span class="text-primary">*</span></span>
-<textarea class="contact-field" name="message" rows="6" placeholder="Your message…" disabled></textarea>
+<textarea class="contact-field" name="message" rows="6" placeholder="Your message…" required></textarea>
 </label>
-<button type="submit" class="w-full sm:w-auto bg-primary-container text-on-primary-fixed font-label-caps px-8 py-4 rounded-lg font-bold opacity-60 cursor-not-allowed" disabled aria-disabled="true">
+<button type="submit" id="contact-form-submit" class="w-full sm:w-auto bg-primary-container text-on-primary-fixed font-label-caps px-8 py-4 rounded-lg font-bold hover:brightness-110 active:opacity-80 transition-all">
 Submit
 </button>
 </form>
@@ -244,7 +245,63 @@ Submit
 </div>
 </div>
 </footer>
+<script src="assets/sheet-form.js"></script>
 <script src="assets/dark-mode.js"></script>
 <script src="assets/mobile-nav.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('contact-form-status');
+  var submitBtn = document.getElementById('contact-form-submit');
+  if (!form || !statusEl || !submitBtn) return;
+
+  function showStatus(message, isError) {
+    statusEl.textContent = message;
+    statusEl.classList.remove('hidden', 'bg-green-100', 'text-green-900', 'border', 'border-green-200', 'bg-red-100', 'text-red-900', 'border-red-200');
+    if (isError) {
+      statusEl.classList.add('bg-red-100', 'text-red-900', 'border', 'border-red-200');
+    } else {
+      statusEl.classList.add('bg-green-100', 'text-green-900', 'border', 'border-green-200');
+    }
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    statusEl.classList.add('hidden');
+
+    var row = [
+      sheetFormTimestamp(),
+      form.elements.name.value.trim(),
+      form.elements.email.value.trim(),
+      form.elements.subject.value.trim(),
+      form.elements.message.value.trim()
+    ];
+
+    submitToGoogleSheet('Contact', row)
+      .then(function () {
+        form.reset();
+        showStatus('Thank you — your message has been sent. We will be in touch soon.', false);
+        submitBtn.textContent = 'Sent';
+        window.setTimeout(function () {
+          submitBtn.textContent = originalLabel;
+          submitBtn.disabled = false;
+        }, 4000);
+      })
+      .catch(function () {
+        showStatus('Something went wrong. Please email seniorsofexcellencent@gmail.com directly.', true);
+        submitBtn.textContent = originalLabel;
+        submitBtn.disabled = false;
+      });
+  });
+})();
+</script>
 </body>
 </html>
