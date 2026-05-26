@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* About: silhouette + aims carousel */
+.silhouette {
+  background: #e4e2e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.silhouette svg {
+  opacity: 0.45;
+}
+
+.aims-stack {
+  perspective: 1200px;
+  position: relative;
+}
+
+.aims-carousel-slide {
+  transition:
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.aims-carousel-slide.aims-front {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.aims-carousel-slide.aims-back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translateZ(-60px) scale(0.94);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.aims-carousel-slide.aims-exit-to-back {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translateZ(-120px) scale(0.88) translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.aims-carousel-slide.aims-enter-from-back {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transform: translateZ(-120px) scale(0.88) translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Contact form fields */
+.contact-field {
+  width: 100%;
+  border: 1px solid rgba(24, 24, 27, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #1b1c1c;
+  transition: border-color 0.2s;
+}
+
+.contact-field:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.2);
+}
+
+textarea.contact-field {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+/* In memoriam */
+.memorial-portrait {
+  background: #e4e2e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memorial-portrait svg {
+  opacity: 0.45;
+}
+
+/* Nominate form */
+.field-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #d1c5bc;
+  padding: 10px 0 10px;
+  font-size: 17px;
+  color: #1b1c1c;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-input:focus {
+  border-bottom-color: #ff8c00;
+}
+
+.field-input::placeholder {
+  color: #c8c6c5;
+}
+
+textarea.field-input {
+  border: 2px solid #d1c5bc;
+  border-radius: 6px;
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 180px;
+  background: #ffffff;
+}
+
+textarea.field-input:focus {
+  border-color: #ff8c00;
+}
+
+.step-item.active .step-num {
+  background: #ff8c00;
+  color: #2f1500;
+}
+
+.step-item.done .step-num {
+  background: #1b1c1c;
+  color: #ffffff;
+}
+
+/* Events calendar timeline */
+#calendar-timeline .event-timeline-card {
+  border-width: 1px;
+  border-style: solid;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card {
+  background-color: #ffffff;
+  border-color: rgba(24, 24, 27, 0.1);
+  color: #1b1c1c;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card:hover {
+  border-color: #ff8c00;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-date {
+  color: #5f5e5e;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-desc {
+  color: #5f5e5e;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-cta {
+  color: #904d00;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card {
+  background-color: #18181b;
+  border-color: #3f3f46;
+  color: #ffffff;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card:hover {
+  border-color: #52525b;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-date {
+  color: #a1a1aa;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-desc {
+  color: #d4d4d8;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-cta {
+  color: #ff8c00;
+}
+
+.calendar-timeline-entry[id] {
+  scroll-margin-top: 6rem;
+}

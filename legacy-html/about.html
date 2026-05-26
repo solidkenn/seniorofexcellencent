@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="assets/dark-mode-init.js"></script>
+<link href="assets/dark-mode.css" rel="stylesheet"/>
+<link href="assets/mobile-nav.css" rel="stylesheet"/>
+<title>About Us – Seniors of Excellence NT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Work+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-container": "#f0eded",
+          "secondary": "#5f5e5e",
+          "on-primary": "#ffffff",
+          "on-primary-fixed": "#2f1500",
+          "on-secondary-container": "#656464",
+          "inverse-primary": "#ffb77d",
+          "secondary-fixed-dim": "#c8c6c5",
+          "error-container": "#ffdad6",
+          "on-primary-container": "#623200",
+          "on-tertiary-fixed-variant": "#004c6c",
+          "on-secondary-fixed": "#1c1b1b",
+          "secondary-container": "#e5e2e1",
+          "primary-container": "#ff8c00",
+          "error": "#ba1a1a",
+          "on-surface": "#1b1c1c",
+          "primary": "#904d00",
+          "background": "#fbf9f8",
+          "tertiary-container": "#00b5fc",
+          "on-secondary-fixed-variant": "#474646",
+          "surface-dim": "#dcd9d9",
+          "on-tertiary": "#ffffff",
+          "outline-variant": "#ddc1ae",
+          "surface": "#fbf9f8",
+          "on-error": "#ffffff",
+          "surface-bright": "#fbf9f8",
+          "on-primary-fixed-variant": "#6e3900",
+          "outline": "#897362",
+          "secondary-fixed": "#e5e2e1",
+          "on-secondary": "#ffffff",
+          "surface-tint": "#904d00",
+          "inverse-surface": "#303030",
+          "surface-container-lowest": "#ffffff",
+          "inverse-on-surface": "#f3f0f0",
+          "primary-fixed": "#ffdcc3",
+          "on-background": "#1b1c1c",
+          "surface-variant": "#e4e2e1",
+          "primary-fixed-dim": "#ffb77d",
+          "surface-container-highest": "#e4e2e1",
+          "on-tertiary-fixed": "#001e2e",
+          "on-error-container": "#93000a",
+          "tertiary-fixed": "#c7e7ff",
+          "tertiary": "#00658f",
+          "tertiary-fixed-dim": "#85cfff",
+          "on-tertiary-container": "#004360",
+          "surface-container-high": "#eae8e7",
+          "surface-container-low": "#f6f3f2",
+          "on-surface-variant": "#564334"
+        },
+        borderRadius: {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "2xl": "1rem",
+          "full": "9999px"
+        },
+        fontFamily: {
+          "h1": ["Noto Serif"],
+          "h2": ["Noto Serif"],
+          "h3": ["Noto Serif"],
+          "body-md": ["Work Sans"],
+          "body-lg": ["Work Sans"],
+          "label-caps": ["Work Sans"]
+        },
+        fontSize: {
+          "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+          "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-lg": ["20px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+          "label-caps": ["14px", {"lineHeight": "1", "letterSpacing": "0.08em", "fontWeight": "600"}],
+          "h3": ["28px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    background-color: #fbf9f8;
+    color: #1b1c1c;
+  }
+
+  /* Silhouette person placeholder */
+  .silhouette {
+    background: #e4e2e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .silhouette svg { opacity: 0.45; }
+
+  /* Aims carousel stack transition */
+  .aims-stack {
+    perspective: 1200px;
+    position: relative;
+  }
+  .aims-carousel-slide {
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index   0s;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+  .aims-carousel-slide.aims-front {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .aims-carousel-slide.aims-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform: translateZ(-60px) scale(0.94);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  /* Outgoing: fly to back */
+  .aims-carousel-slide.aims-exit-to-back {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transform: translateZ(-120px) scale(0.88) translateY(16px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Incoming: rise from back */
+  .aims-carousel-slide.aims-enter-from-back {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transform: translateZ(-120px) scale(0.88) translateY(16px);
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body class="font-body-md antialiased overflow-x-hidden bg-surface">
+
+<!-- Nav -->
+<header class="fixed top-0 w-full z-50 bg-white border-b border-zinc-900/10">
+<nav class="flex justify-between items-center h-20 px-8 max-w-7xl mx-auto antialiased">
+  <a href="index.html" class="flex items-center gap-3 shrink-0 min-w-0 no-underline text-inherit hover:opacity-90 transition-opacity">
+    <img src="assets/logo.png" width="56" height="56" class="header-logo" alt="Seniors of Excellence Northern Territory"/>
+    <span class="text-xl font-bold tracking-tight text-black truncate">Seniors of Excellence NT</span>
+  </a>
+  <div class="hidden lg:flex items-center gap-8">
+    <a class="text-orange-600 font-medium" href="about.html" aria-current="page">About</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="events.html">Events</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="gallery.html">Gallery</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="in-memoriam.html">In Memoriam</a>
+    <a class="text-zinc-900 font-medium hover:text-orange-600 transition-colors duration-200" href="contact.html">Contact</a>
+  </div>
+  <div class="flex items-center gap-3 shrink-0">
+  <button type="button" id="mobile-nav-toggle" class="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:border-primary-container transition-colors" aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open menu">
+  <span class="material-symbols-outlined text-2xl mobile-nav-icon-menu" aria-hidden="true">menu</span>
+  <span class="material-symbols-outlined text-2xl mobile-nav-icon-close hidden" aria-hidden="true">close</span>
+  </button>
+  <button type="button" id="dark-mode-toggle" aria-label="Switch to dark mode" aria-pressed="false" class="flex items-center justify-center w-11 h-11 rounded-lg border border-zinc-200 bg-white text-zinc-900 hover:border-primary-container transition-colors">
+  <span class="material-symbols-outlined text-2xl dark-mode-icon-moon" aria-hidden="true">dark_mode</span>
+  <span class="material-symbols-outlined text-2xl dark-mode-icon-sun hidden" aria-hidden="true">light_mode</span>
+  </button>
+  <a class="bg-primary-container text-on-primary-fixed font-label-caps px-6 py-3 rounded-lg hover:brightness-110 active:opacity-80 transition-all font-bold" href="nominate.html">
+    Nominate Now
+  </a>
+  </div>
+</nav>
+<div id="mobile-nav-panel" class="lg:hidden" hidden>
+<ul class="mobile-nav-list">
+<li><a href="about.html" aria-current="page">About</a></li>
+<li><a href="events.html">Events</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="in-memoriam.html">In Memoriam</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li class="mobile-nav-nominate"><a href="nominate.html">Nominate Now</a></li>
+</ul>
+</div>
+</header>
+
+<main class="mt-20">
+
+<!-- Hero -->
+<section class="bg-zinc-900 text-white py-20">
+  <div class="max-w-7xl mx-auto px-8">
+    <span class="inline-block text-primary-container font-label-caps mb-4 tracking-widest text-xs">OUR STORY</span>
+    <h1 class="font-h1 text-h1 mb-6 max-w-3xl">About Seniors of Excellence NT</h1>
+    <p class="font-body-lg text-body-lg text-zinc-300 leading-relaxed max-w-2xl">
+      Founded by a retiree who believed unsung heroes deserve recognition — celebrating the extraordinary contributions of Northern Territory seniors since 2005.
+    </p>
+  </div>
+</section>
+
+<!-- Founder -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <!-- Photo -->
+      <div class="flex justify-center lg:justify-start">
+        <div class="w-72 h-72 rounded-full overflow-hidden silhouette shadow-lg border border-zinc-200">
+          <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#9ca3af"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#9ca3af"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Text -->
+      <div>
+        <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">FOUNDER &amp; PRESIDENT</span>
+        <h2 class="font-h2 text-h2 mb-1">Michael (Mike) Foley OAM</h2>
+        <p class="text-secondary text-sm font-semibold mb-6 uppercase tracking-wider">Founder / President</p>
+        <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+          Mike Foley dedicated a significant portion of his life to community service, beginning with his active involvement in various community groups during his spare time. This immersion in community work exposed him to a multitude of individuals who shared his passion, many of whom were retirees.
+        </p>
+        <p class="font-body-lg text-body-lg text-on-surface leading-relaxed mt-4">
+          Inspired by their dedication and contributions, Foley embarked on a mission to recognise and celebrate these unsung heroes upon his retirement in 2005.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Board -->
+<section class="py-20 bg-surface-container-low" id="board">
+  <div class="max-w-7xl mx-auto px-8">
+    <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">GOVERNANCE</span>
+    <h2 class="font-h2 text-h2 mb-12">Our Board</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card: Mike Foley -->
+      <div class="bg-white rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#9ca3af"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#9ca3af"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">President</p>
+          <h3 class="font-h3 text-h3">Michael (Mike) Foley OAM</h3>
+        </div>
+      </div>
+
+      <!-- Card: Willem Westra van Holthe -->
+      <div class="bg-white rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#9ca3af"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#9ca3af"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Vice President</p>
+          <h3 class="font-h3 text-h3">The Hon Willem Westra van Holthe</h3>
+        </div>
+      </div>
+
+      <!-- Card: Jacqueline Dowling -->
+      <div class="bg-white rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#9ca3af"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#9ca3af"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Treasurer</p>
+          <h3 class="font-h3 text-h3">Jacqueline Dowling</h3>
+        </div>
+      </div>
+
+      <!-- Card: Kay Foley -->
+      <div class="bg-white rounded-2xl shadow-sm border border-zinc-100 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#9ca3af"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#9ca3af"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Secretary &amp; Public Officer</p>
+          <h3 class="font-h3 text-h3">Kay Foley</h3>
+        </div>
+      </div>
+
+      <!-- Card: TBA Committee Member -->
+      <div class="bg-white rounded-2xl shadow-sm border border-dashed border-zinc-300 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#d1d5db"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#d1d5db"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Committee Member</p>
+          <h3 class="font-h3 text-h3 text-zinc-400">To Be Announced</h3>
+        </div>
+      </div>
+
+      <!-- Card: TBA Committee Member -->
+      <div class="bg-white rounded-2xl shadow-sm border border-dashed border-zinc-300 hover:shadow-md transition-shadow flex flex-col items-center text-center pt-8 pb-6 px-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden silhouette border border-zinc-200 shrink-0 mb-5 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="72" r="40" fill="#d1d5db"/>
+            <ellipse cx="100" cy="175" rx="60" ry="50" fill="#d1d5db"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-label-caps text-primary text-[10px] tracking-widest mb-1">Committee Member</p>
+          <h3 class="font-h3 text-h3 text-zinc-400">To Be Announced</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Our Patron -->
+<section class="py-20 bg-zinc-900 text-white" id="patron">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+      <div>
+        <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">OUR PATRON</span>
+        <h2 class="font-h2 text-h2 mb-4">The Hon Sally Thomas</h2>
+        <p class="text-zinc-300 font-body-lg text-body-lg leading-relaxed">
+          We are honoured to have The Honourable Sally Thomas as our Patron, lending her distinguished support to the recognition of senior volunteers across the Northern Territory.
+        </p>
+      </div>
+      <div class="flex justify-center lg:justify-end">
+        <div class="w-64 h-64 rounded-full overflow-hidden border-2 border-primary-container/40 shadow-xl" style="background:#27272a">
+          <div class="w-full h-full flex items-center justify-center">
+            <svg viewBox="0 0 200 200" width="160" height="160" xmlns="http://www.w3.org/2000/svg" opacity="0.4">
+              <circle cx="100" cy="72" r="40" fill="#ff8c00"/>
+              <ellipse cx="100" cy="175" rx="60" ry="50" fill="#ff8c00"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Aims & Mission -->
+<section class="py-24 bg-surface-container-low" id="aims">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-14">
+      <span class="inline-block font-label-caps text-primary text-xs mb-3 tracking-widest">WHAT WE STAND FOR</span>
+      <h2 class="font-h2 text-h2 mb-4">Our Aims &amp; Mission</h2>
+      <p class="font-body-lg text-body-lg text-secondary max-w-2xl mx-auto leading-relaxed">Supporting Northern Territory seniors through recognition, community service, and the celebration of voluntary excellence.</p>
+    </div>
+
+    <div id="aims-carousel" class="max-w-4xl mx-auto" tabindex="0" aria-roledescription="carousel" aria-label="Our Aims and Mission">
+      <div class="flex items-center gap-3 md:gap-6">
+        <button type="button" id="aims-carousel-prev" class="shrink-0 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg border border-zinc-900/10 bg-white text-on-surface hover:border-primary-container hover:text-primary transition-colors disabled:opacity-40 disabled:pointer-events-none" aria-label="Previous slide">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+      <div class="aims-stack flex-1 min-w-0">
+      <!-- Aims & Objectives -->
+      <div id="aims-slide-0" class="aims-carousel-slide aims-front bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col overflow-hidden" role="group" aria-roledescription="slide" aria-label="1 of 2: Our Aims and Objectives">
+        <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">star</span>
+        <div class="relative z-10 mb-8">
+          <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">WHAT WE STAND FOR</span>
+          <h3 class="font-h2 text-h2 mb-4">Our Aims &amp; Objectives</h3>
+          <p class="text-zinc-300 text-base leading-relaxed">We support Northern Territory seniors through positive community engagement, lifelong contribution, and recognition of voluntary excellence.</p>
+        </div>
+        <div class="relative z-10 space-y-6">
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">01</span>
+            <p class="text-zinc-200 text-base leading-relaxed">To encourage and support all Senior Citizens wherever they are in the NT, to improve their quality of life through positive attitudes, good communication and sound values.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">02</span>
+            <p class="text-zinc-200 text-base leading-relaxed">To urge Seniors to put to good use the valuable life skills they have attained throughout their lives in assisting others less fortunate than themselves.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">03</span>
+            <p class="text-zinc-200 text-base leading-relaxed">By way of example, encourage other Seniors to aspire to achievement and accomplish goals to the advantage of themselves and others.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">04</span>
+            <p class="text-zinc-200 text-base leading-relaxed">To share a common wealth of ideas and expertise through this program that encourages Seniors to recognise the value of achievement and self esteem that comes through community service, volunteering and other significant ways.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission Statement -->
+      <div id="aims-slide-1" class="aims-carousel-slide aims-back bg-zinc-900 rounded-2xl border-l-4 border-primary-container p-8 lg:p-10 text-white flex flex-col overflow-hidden" role="group" aria-roledescription="slide" aria-label="2 of 2: Our Mission Statement">
+        <span class="material-symbols-outlined text-primary-container absolute top-6 right-6 text-6xl opacity-10 pointer-events-none" aria-hidden="true" style="font-variation-settings:'FILL' 1;">diversity_3</span>
+        <div class="relative z-10 mb-8">
+          <span class="inline-block font-label-caps text-primary-container text-xs mb-3 tracking-widest">GUIDING PRINCIPLES</span>
+          <h3 class="font-h2 text-h2 mb-4">Our Mission Statement</h3>
+          <p class="text-zinc-300 text-base leading-relaxed">We exist to honour senior volunteers across the Northern Territory and inspire others through the power of community service, dignity, and lifelong contribution.</p>
+        </div>
+        <div class="relative z-10 space-y-6">
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">01</span>
+            <p class="text-zinc-200 text-base leading-relaxed">Encourage and support all Senior Citizens wherever they are in the NT, to improve their quality of life through positive attitudes, good communication and sound values.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">02</span>
+            <p class="text-zinc-200 text-base leading-relaxed">Urge Seniors to put to good use the valuable life skills they have attained throughout their lives in assisting others less fortunate than themselves.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">03</span>
+            <p class="text-zinc-200 text-base leading-relaxed">By way of example, encourage other Seniors to aspire to achievement and accomplish goals to the advantage of themselves and others.</p>
+          </div>
+          <div class="flex gap-4">
+            <span class="shrink-0 font-bold text-primary-container text-sm mt-0.5">04</span>
+            <p class="text-zinc-200 text-base leading-relaxed">Share a common wealth of ideas and expertise through this program that encourages Seniors to recognise the value of achievement and self esteem that comes through community service, volunteering and other significant ways.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+        <button type="button" id="aims-carousel-next" class="shrink-0 z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-lg border border-zinc-900/10 bg-white text-on-surface hover:border-primary-container hover:text-primary transition-colors disabled:opacity-40 disabled:pointer-events-none" aria-label="Next slide">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-primary-container">
+  <div class="max-w-7xl mx-auto px-8 text-center">
+    <h2 class="font-h2 text-h2 text-black mb-4">Know a Senior Who Deserves Recognition?</h2>
+    <p class="text-on-primary-container font-body-lg text-body-lg mb-8 max-w-xl mx-auto">Nominations for the 2026 Awards are open. Help us celebrate the unsung heroes of the Northern Territory.</p>
+    <a href="nominate.html" class="inline-block bg-black text-white font-bold font-label-caps px-10 py-4 rounded-lg hover:bg-zinc-800 transition-all">
+      Nominate a Senior
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-zinc-900 py-20 border-t border-white/5 text-sm">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-zinc-400">
+  <div class="lg:col-span-1">
+    <div class="text-lg font-bold text-white mb-6">Seniors of Excellence NT</div>
+    <p class="leading-relaxed mb-6">Honoring the wisdom and vitality of our senior community across the Northern Territory since 2012.</p>
+    <div class="flex gap-4">
+      <span class="material-symbols-outlined text-white hover:text-orange-400 cursor-pointer transition-colors">social_leaderboard</span>
+      <span class="material-symbols-outlined text-white hover:text-orange-400 cursor-pointer transition-colors">public</span>
+    </div>
+  </div>
+  <div>
+    <h4 class="text-white font-bold mb-6 font-label-caps">Quick Links</h4>
+    <ul class="space-y-4">
+      <li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+      <li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+      <li><a class="hover:text-white transition-colors" href="nominate.html">Nomination Guidelines</a></li>
+      <li><a class="hover:text-white transition-colors" href="index.html#criteria">Nomination Criteria</a></li>
+      <li><a class="hover:text-white transition-colors" href="index.html#sponsors">Our Sponsors</a></li>
+      <li><a class="hover:text-white transition-colors" href="#">Weekly Bulletin</a></li>
+      <li><a class="hover:text-white transition-colors" href="in-memoriam.html">In Memoriam</a></li>
+      <li><a class="hover:text-white transition-colors" href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 class="text-white font-bold mb-6 font-label-caps">Contact Us</h4>
+    <ul class="space-y-4">
+      <li class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-orange-400 text-sm">mail</span>
+        <a class="hover:text-white transition-colors" href="mailto:seniorsofexcellencent@gmail.com">seniorsofexcellencent@gmail.com</a>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined text-orange-400 text-sm">location_on</span>
+        <span>P.O. Box 40561,<br/>Casuarina, NT 0811</span>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4 class="text-white font-bold mb-6 font-label-caps">Legacy</h4>
+    <p class="text-xs italic leading-loose">"The future belongs to those who believe in the beauty of their dreams and the strength of their service."</p>
+    <div class="mt-8 pt-8 border-t border-white/5">
+      <p class="text-white font-bold mb-2">© 2026 Seniors of Excellence NT.</p>
+      <p>Honoring Wisdom and Vitality.</p>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.aims-carousel-slide'));
+  var prevBtn = document.getElementById('aims-carousel-prev');
+  var nextBtn = document.getElementById('aims-carousel-next');
+  var current = 0;
+  var total = slides.length;
+  var animating = false;
+
+  function setClasses(el, add, remove) {
+    add.forEach(function (c) { el.classList.add(c); });
+    remove.forEach(function (c) { el.classList.remove(c); });
+  }
+
+  function updateControls() {
+    if (prevBtn) prevBtn.disabled = current === 0;
+    if (nextBtn) nextBtn.disabled = current === total - 1;
+  }
+
+  function goTo(next) {
+    if (animating || next === current || next < 0 || next >= total) return;
+    animating = true;
+
+    var outgoing = slides[current];
+    var incoming = slides[next];
+
+    /* Place incoming behind, ready to rise */
+    setClasses(incoming, ['aims-enter-from-back'], ['aims-back', 'aims-front', 'aims-exit-to-back']);
+
+    /* Trigger reflow so the start state is painted before the transition runs */
+    incoming.getBoundingClientRect();
+
+    /* Animate outgoing to back, incoming to front */
+    setClasses(outgoing, ['aims-exit-to-back'], ['aims-front', 'aims-back', 'aims-enter-from-back']);
+    setClasses(incoming, ['aims-front'], ['aims-enter-from-back', 'aims-back', 'aims-exit-to-back']);
+
+    current = next;
+    updateControls();
+
+    var DURATION = 560;
+    setTimeout(function () {
+      /* Park the old slide quietly behind */
+      setClasses(outgoing, ['aims-back'], ['aims-exit-to-back', 'aims-front', 'aims-enter-from-back']);
+      animating = false;
+    }, DURATION);
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+  var carousel = document.getElementById('aims-carousel');
+  if (carousel) {
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+  }
+
+  updateControls();
+})();
+</script>
+<script src="assets/dark-mode.js"></script>
+<script src="assets/mobile-nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* Bottom-border input base (nomination form) */
+.field-input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #d1c5bc;
+  padding: 10px 0 10px;
+  font-size: 17px;
+  color: #1b1c1c;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-input:focus {
+  border-bottom-color: #ff8c00;
+}
+
+.field-input::placeholder {
+  color: #c8c6c5;
+}
+
+textarea.field-input {
+  border: 2px solid #d1c5bc;
+  border-radius: 6px;
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 180px;
+  background: #ffffff;
+}
+
+textarea.field-input:focus {
+  border-color: #ff8c00;
+}
+
+/* Step tracker (nomination page) */
+.step-item.active .step-num {
+  background: #ff8c00;
+  color: #2f1500;
+}
+
+.step-item.done .step-num {
+  background: #1b1c1c;
+  color: #ffffff;
+}
+
+/* Contact form fields */
+.contact-field {
+  width: 100%;
+  border: 1px solid rgba(24, 24, 27, 0.15);
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #1b1c1c;
+  transition: border-color 0.2s;
+}
+
+.contact-field:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 2px rgba(255, 140, 0, 0.2);
+}
+
+textarea.contact-field {
+  min-height: 10rem;
+  resize: vertical;
+}

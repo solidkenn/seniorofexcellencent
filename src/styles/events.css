@@ -1,0 +1,53 @@
+/* Events calendar timeline — light mode card alternation (legacy events.html) */
+#calendar-timeline .event-timeline-card {
+  border-width: 1px;
+  border-style: solid;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card {
+  background-color: #ffffff;
+  border-color: rgba(24, 24, 27, 0.1);
+  color: #1b1c1c;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card:hover {
+  border-color: #ff8c00;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-date {
+  color: #5f5e5e;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-desc {
+  color: #5f5e5e;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-cta {
+  color: #904d00;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card {
+  background-color: #18181b;
+  border-color: #3f3f46;
+  color: #ffffff;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card:hover {
+  border-color: #52525b;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-date {
+  color: #a1a1aa;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-desc {
+  color: #d4d4d8;
+}
+
+#calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-cta {
+  color: #ff8c00;
+}
+
+.calendar-timeline-entry[id] {
+  scroll-margin-top: 6rem;
+}
