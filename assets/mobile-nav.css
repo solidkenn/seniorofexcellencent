@@ -1,0 +1,128 @@
+/* Mobile navigation panel — senior-friendly large tap targets */
+#mobile-nav-panel {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+#mobile-nav-panel[hidden] {
+  display: none !important;
+}
+
+#mobile-nav-panel.is-open {
+  display: block;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem 1.5rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-nav-list a {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1b1c1c;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-nav-list a:hover,
+.mobile-nav-list a:focus-visible {
+  background-color: #f6f3f2;
+  color: #ea580c;
+  outline: 2px solid #ff8c00;
+  outline-offset: 2px;
+}
+
+.mobile-nav-list a[aria-current="page"] {
+  color: #ea580c;
+  background-color: rgba(255, 140, 0, 0.12);
+}
+
+.mobile-nav-nominate {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(24, 24, 27, 0.1);
+}
+
+.mobile-nav-nominate a {
+  background-color: #ff8c00;
+  color: #2f1500 !important;
+  text-align: center;
+  font-weight: 700;
+}
+
+.mobile-nav-nominate a:hover,
+.mobile-nav-nominate a:focus-visible {
+  background-color: #ff9f26;
+  color: #2f1500 !important;
+}
+
+body.mobile-nav-open {
+  overflow: hidden;
+}
+
+/* Dark mode */
+html.dark #mobile-nav-panel {
+  background-color: #27272a;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .mobile-nav-list a {
+  color: #f4f4f5;
+}
+
+html.dark .mobile-nav-list a:hover,
+html.dark .mobile-nav-list a:focus-visible {
+  background-color: #3f3f46;
+  color: #fb923c;
+}
+
+html.dark .mobile-nav-list a[aria-current="page"] {
+  color: #fb923c;
+  background-color: rgba(255, 140, 0, 0.15);
+}
+
+html.dark .mobile-nav-nominate {
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark #mobile-nav-toggle {
+  background-color: #3f3f46;
+  border-color: #52525b;
+  color: #fafafa;
+}
+
+/* Site header — circular logo (all pages) */
+img.header-logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 0.3rem;
+  border: 2px solid rgba(255, 140, 0, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+html.dark img.header-logo {
+  background-color: #27272a;
+  border-color: rgba(255, 140, 0, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}

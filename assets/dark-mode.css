@@ -1,0 +1,254 @@
+/* Site-wide dark mode overrides (html.dark) */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #18181b;
+  color: #f4f4f5;
+}
+
+html.dark header.bg-white,
+html.dark .bg-white {
+  background-color: #27272a !important;
+}
+
+html.dark .bg-surface,
+html.dark .bg-background,
+html.dark .bg-surface-container-low:not(.event-timeline-card),
+html.dark .bg-surface-container-lowest:not(.event-timeline-card) {
+  background-color: #1f1f23 !important;
+}
+
+html.dark .bg-surface-container {
+  background-color: #27272a !important;
+}
+
+html.dark .text-black,
+html.dark .text-zinc-900 {
+  color: #fafafa !important;
+}
+
+html.dark .text-on-surface {
+  color: #f4f4f5 !important;
+}
+
+html.dark .text-secondary,
+html.dark .text-on-surface-variant {
+  color: #a1a1aa !important;
+}
+
+html.dark .text-zinc-500,
+html.dark .text-zinc-400,
+html.dark .text-zinc-300 {
+  color: #a1a1aa !important;
+}
+
+html.dark .border-zinc-200,
+html.dark .border-zinc-900\/10 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark nav a.text-zinc-900:hover {
+  color: #fb923c !important;
+}
+
+html.dark nav a.text-orange-600 {
+  color: #fb923c !important;
+}
+
+html.dark #dark-mode-toggle {
+  background-color: #3f3f46;
+  border-color: #52525b;
+  color: #fafafa;
+}
+
+/* Cards and articles */
+html.dark article.bg-white,
+html.dark article.border-zinc-900\/10,
+html.dark .memorial-card {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .memorial-portrait {
+  background-color: #3f3f46 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .memorial-portrait svg circle,
+html.dark .memorial-portrait svg ellipse {
+  fill: #71717a;
+}
+
+html.dark .contact-field {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark .contact-field:focus {
+  border-color: #ff8c00 !important;
+}
+
+html.dark #contact-form-status.bg-green-100,
+html.dark #nomination-form-status.bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+  color: #86efac !important;
+  border-color: rgba(34, 197, 94, 0.35) !important;
+}
+
+html.dark #contact-form-status.bg-red-100,
+html.dark #nomination-form-status.bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #fca5a5 !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+}
+
+html.dark .bg-white.rounded-lg {
+  background-color: #27272a !important;
+}
+
+/* Gallery tabs — inactive */
+html.dark .gallery-tab:not(.bg-primary-container) {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark .gallery-tab.bg-primary-container {
+  color: #2f1500 !important;
+}
+
+/* Events month filters — inactive */
+html.dark .month-filter-btn:not(.bg-primary-container) {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark .month-filter-btn .text-primary-container {
+  color: #ff8c00 !important;
+}
+
+html.dark .month-filter-btn.bg-primary-container {
+  color: #1b1c1c !important;
+}
+
+/* Events timeline alternating cards (override global .bg-surface-container-low) */
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-card:hover {
+  border-color: #ff8c00 !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-date,
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-desc {
+  color: #a1a1aa !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(odd) .event-timeline-cta {
+  color: #ff8c00 !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card {
+  background-color: #09090b !important;
+  border-color: #3f3f46 !important;
+  color: #f4f4f5 !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-card:hover {
+  border-color: #52525b !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-date,
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-desc {
+  color: #a1a1aa !important;
+}
+
+html.dark #calendar-timeline .calendar-timeline-entry:nth-child(even) .event-timeline-cta {
+  color: #ff8c00 !important;
+}
+
+/* Modals */
+html.dark #event-modal [role="dialog"],
+html.dark #video-modal [role="dialog"] {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark #event-modal #event-modal-description,
+html.dark #video-modal #video-modal-description,
+html.dark #event-modal-title,
+html.dark #video-modal-title {
+  color: #f4f4f5 !important;
+}
+
+html.dark #event-modal #event-modal-description,
+html.dark #video-modal #video-modal-description {
+  color: #a1a1aa !important;
+}
+
+/* Forms and inputs */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #3f3f46;
+  border-color: #52525b;
+  color: #fafafa;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #71717a;
+}
+
+html.dark .field-input {
+  background-color: #3f3f46 !important;
+  border-color: #52525b !important;
+  color: #fafafa !important;
+}
+
+/* Nominate sidebar cards */
+html.dark aside .bg-white.border-zinc-200 {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .step-num.bg-surface-container {
+  background-color: #3f3f46 !important;
+}
+
+/* Homepage bulletin input */
+html.dark #gallery ~ section input,
+html.dark section input.border-zinc-700 {
+  border-color: #52525b !important;
+  color: #fafafa !important;
+}
+
+html.dark section input.border-zinc-700::placeholder {
+  color: #52525b !important;
+}
+
+/* Sponsor logo container on index */
+html.dark .bg-white.border-zinc-200.rounded-lg {
+  background-color: #27272a !important;
+}
+
+/* About carousel controls */
+html.dark #aims-carousel-prev,
+html.dark #aims-carousel-next {
+  background-color: #27272a !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f4f4f5 !important;
+}
+
+/* Orange blocks: keep readable dark text on orange */
+html.dark .bg-primary-container.text-on-primary-fixed,
+html.dark .bg-primary-container.text-black {
+  color: #2f1500 !important;
+}
