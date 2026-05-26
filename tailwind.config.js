@@ -1,0 +1,50 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'surface-container': '#f0eded',
+        secondary: '#5f5e5e',
+        'on-primary-fixed': '#2f1500',
+        'primary-container': '#ff8c00',
+        'on-surface': '#1b1c1c',
+        primary: '#904d00',
+        background: '#fbf9f8',
+        surface: '#fbf9f8',
+        'surface-container-low': '#f6f3f2',
+        'surface-container-lowest': '#ffffff',
+        outline: '#897362',
+        'on-surface-variant': '#564334',
+        'on-primary-container': '#623200',
+        error: '#ba1a1a',
+      },
+      borderRadius: {
+        DEFAULT: '0.125rem',
+        lg: '0.25rem',
+        xl: '0.5rem',
+        full: '0.75rem',
+      },
+      fontFamily: {
+        h1: ['Noto Serif', 'serif'],
+        h2: ['Noto Serif', 'serif'],
+        h3: ['Noto Serif', 'serif'],
+        serif: ['Noto Serif', 'serif'],
+        sans: ['Work Sans', 'sans-serif'],
+        'body-md': ['Work Sans', 'sans-serif'],
+        'body-lg': ['Work Sans', 'sans-serif'],
+        'label-caps': ['Work Sans', 'sans-serif'],
+      },
+      fontSize: {
+        h1: ['48px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'body-md': ['18px', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+        h2: ['36px', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'body-lg': ['20px', { lineHeight: '1.6', letterSpacing: '0', fontWeight: '400' }],
+        'label-caps': ['14px', { lineHeight: '1', letterSpacing: '0.08em', fontWeight: '600' }],
+        h3: ['28px', { lineHeight: '1.4', letterSpacing: '0', fontWeight: '600' }],
+      },
+    },
+  },
+  plugins: [],
+};
